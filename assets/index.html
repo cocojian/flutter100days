@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>转盘</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		
+		<link href="index.css" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet">
+		<script src="js/jquery-1.8.3.min.js"></script>
+	</head>
+	
+	<body>
+		<div class="box-body">
+			<!-- 标题 -->
+			<div class="top-title">
+				<div class="record-txt"><a href="javascript:void(0)">我的中獎記錄</a></div>
+				<div class="dzp-1"><img src="img/dzp-1.png" /></div>
+				<div class="dzp-2"><img src="img/dzp-2.png" /></div>
+				<div class="dzp-22"><img src="img/dzp-2.png" /></div>
+				<div class="dzp-3"><img src="img/dzp-3.png" /></div>
+				<div class="dzp-4"><img src="img/dzp-4.png" /></div>
+			</div>
+			<div class="clear-k"></div>
+			<!-- 转盘 -->
+			<div class="center-box" id="center-box">
+				<div class="dzp-5"><img src="img/dzp-5.png" /></div>
+				<div class="dzp-6"><img src="img/dzp-6.png" /></div>
+				<div class="dzp-7"><img src="img/dzp-7.png" /></div>
+				<div class="dzp-14">
+					<div class="rom" id='rom'><div><img src="img/dzp-20.png" /></div></div>
+					<img src="img/dzp-14.png" />
+				</div>
+				<div class="dzp-15"><img src="img/dzp-5.png" /></div>
+				<div class="dzp-8"><img src="img/dzp-8.png" /></div>
+				<div class="dzp-88"><img src="img/dzp-8.png" /></div>
+			</div>
+			<!-- 立即抽奖按钮 -->
+			<div class="but-a">
+				<a href="javascript:void(0)" id="pointer">立即抽奖</a>
+				<a href="javascript:void(0)" onclick="shareFn()">分享註冊得抽獎機會</a>
+				<p>您還有 <em id="number-v">5</em> 次抽獎機會</p>
+			</div>
+			<div class="clear-k"></div>
+			<!-- 中奖人员 -->
+			<div class="Winners-box">
+				<h1>中獎名單</h1>
+				<div class="jq22">
+					<a href="#">Smoothslides – 可平移的jQuery幻灯片插件<span>一等獎</span></a>
+					<a href="#">jQuery全屏滚动插件fullPage.js<span>一等獎</span></a>
+					<a href="#">WOW.js – 让页面滚动更有趣<span>一等獎</span></a>
+					<a href="#">让IE7 IE8支持CSS3 background-size属性<span>一等獎</span></a>
+					<a href="#">shCircleLoader – jQuery Loading效果插件<span>一等獎</span></a>
+				</div>
+			</div>
+			<div class="clear-k"></div>
+			<!-- 规则 -->
+			<div class="rule-box">
+				<div class="title-radius"><em class="left"></em>獎品及活動規則<em class="right"></em></div>
+				<div class="content-box">
+					<div>
+						<h2>獎項</h2>
+						<p>幸運獎:HT-790S 4G兒童智能定位手錶(10個)</p>
+						<p>二等獎:HT-750遠程健康監測智能手環(40個)</p>
+						<p>三等獎:HT-312 1080p全高清行車記錄儀(50個)</p>
+					</div>
+					<div>
+						<h2>獎項</h2>
+						<p><em>1.</em><span>活动有效日期2021年9月1日-10月30日。</span></p>
+						<p><em>2.</em><span>每人每天有一次抽獎機會。</span></p>
+						<p><em>3.</em><span>邀請朋友註冊並成功後雙方都可多獲得一次抽獎機會。</span></p>
+						<p><em>4.</em><span>購買商品並確認收貨後增加一次機會。</span></p>
+						<p><em>5.</em><span>收到實物獎品後需到公司自提，並且在facebook上面發帖 @LiteMallHK。</span></p>
+						<p><em>6.</em><span>抽獎過程中，如果發現違法行為（如惡意註冊大量賬號、 使用作弊程序），將取消您的中獎資格。</span></p>
+						<p><em>7.</em><span>得獎者限於得領取日起60天內領取完畢，否則將失效。</span></p>
+						<p><em>8.</em><span>HT Advanced Intelligent Technology Ltd. 將保留此活動之最終決定權。</span></p>
+					</div>
+				</div>
+			</div>
+			<div class="clear-k"></div>
+			<div style="height: 20px;overflow: hidden;background-image: url(img/dzp-21.png);background-size: 100%;background-position: 0 -40%;"></div>
+		</div>
+		
+		<!-- 弹出层1 没中奖结果-->
+		<div class="poput-lottey poput-lottey1">
+			<h1>謝謝參與</h1>
+			<p>很遺憾，沒有中獎</p>
+			<a href="javascript:void(0)" onclick="$('.poput-lottey,.share-window-hi').hide();">知道了</a>
+		</div>
+		<!-- 弹出层2 中奖结果-->
+		<div class="poput-lottey poput-lottey2">
+			<h1>恭喜中獎</h1>
+			<div class="img"><img src="img/dzp-22.png" /></div>
+			<p id="txt-lottey">幸運獎</p>
+			<p id="txt-lottey1">HT-790S</p>
+			<div class="but">
+				<a href="javascript:void(0)" onclick="$('.poput-lottey,.share-window-hi').hide();">關閉</a>
+				<a href="javascript:void(0)">查看獎品</a>
+			</div>
+		</div>
+		<!-- 弹出层3 活动已結束-->
+		<div class="poput-lottey poput-lottey3">
+			<div class="img"><img src="img/dzp-24.png" /></div>
+			<h1>活動已結束</h1>
+			<p>請多關注平台其他活動！</p>
+			<a href="javascript:void(0)">查看獎品</a>
+			<div class="but" onclick="$('.poput-lottey,.share-window-hi').hide();"><img src="img/dzp-23.png" /></div>
+		</div>
+
+		<!-- 分享 -->
+		<div class="share-window-hi"></div>
+		<div class="share-window share" style="display: block;">
+			<div class="share-title">
+				<h1>分享</h1>
+				<p>好友註冊成功後雙方都可獲得1次抽獎機會</p>
+			</div>
+			<ul>
+				<li>
+					<a href="javascript:void(0)">
+						<img src="img/umeng_socialize_facebook.png" onclick="information('facebook')"  class="share_out" data-value="facebook"/>
+						<p>facebook</p>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:void(0)">
+						<img src="img/umeng_socialize_whatsapp.png" onclick="information('whatsapp')"  class="share_out" data-value="whatsapp"/>
+						<p>whatsapp</p>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:void(0)">
+						<img src="img/umeng_socialize_wechat.png" onclick="information('wechat')" class="share_out"  data-value="wechat"/>
+						<p>wechat</p>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:void(0)">
+						<img src="img/umeng_socialize_copy.png" onclick="information('copy')" class="share_out"  data-value="copy" />
+						<p>複製連結</p>
+					</a>
+				</li>
+			</ul>
+
+			<div class="but-a"><a href="javascript:void(0)" onclick="closeFn()">取消</a></div>
+		</div>
+		<!-- end -->
+		
+		<script src="js/jquery.liMarquee.js"></script>
+		<script src="js/jquery.rotate.min.js"></script>
+		<script>
+			setTimeout(function(){
+				var _height = $('.center-box .dzp-14').height();
+				$('.center-box').css('height',_height+'px');
+				$('.jq22').liMarquee({ //中奖轮播 上下滚动
+					direction: 'up'
+				});
+				
+				$(function(){
+					var numberValue = $('#number-v').text();
+					var $plateBtn = $('#rom');
+					var $pointer = $('#pointer');
+					var frequency = false;
+					$pointer.click(function(){
+						if(frequency || parseFloat(numberValue) == 0){
+							return;
+						}
+						frequency = true;
+						var data = [0, 1, 2, 3, 4, 5, 6, 7];
+				
+						data = data[Math.floor(Math.random()*data.length)];
+						switch(data){
+							case 1: 
+								rotateFunc(1,43,'恭喜中了 三等獎');
+								break;
+							case 2: 
+								rotateFunc(2,88,'恭喜中了 50 Lite Dollar');
+								break;
+							case 3: 
+								rotateFunc(3,133,'恭喜中了 二等獎');
+								break;
+							case 4: 
+								rotateFunc(4,178,'恭喜中了 10 Lite Dollar');
+								break;
+							case 5: 
+								rotateFunc(5,223,'謝謝參與');
+								break;
+							case 6: 
+								rotateFunc(6,268,'恭喜中了 5 Lite Dollar');
+								break;
+							case 7: 
+								rotateFunc(7,313,'幸運獎');
+								break;
+							default:
+								rotateFunc(0,-3,'恭喜中了 20 Lite Dollar');
+						}
+					});
+				
+					var rotateFunc = function(awards,angle,text){  //awards:奖项，angle:奖项对应的角度
+						var x = 8;//上限
+						var y = 4; //下限
+						var rand  = parseInt(Math.random() * (x - y + 1) + y)*360;
+						$plateBtn.stopRotate();
+						$plateBtn.rotate({
+							angle: 0,
+							duration: 5000,
+							animateTo: angle + rand,  //angle是图片上各奖项对应的角度，1440是让指针固定旋转4圈
+							callback: function(){ //中奖结果
+								console.log('转圈数：'+rand/360+'圈 抽奖等到：'+text);
+								var m = parseFloat(numberValue)-1;
+								$('#number-v').text(m);
+								numberValue = m;
+								frequency = false;
+								switch(awards){
+									case 1: 
+										$('.poput-lottey2,.share-window-hi').show();
+										$('#txt-lottey').text('三等獎');
+										$('#txt-lottey1').show();
+										$('.poput-lottey2 .img img').attr('src','img/dzp-22.png');
+										break;
+									case 2: 
+										$('.poput-lottey2,.share-window-hi').show();
+										$('#txt-lottey').text('50 Lite Dollar');
+										$('#txt-lottey1').hide();
+										$('.poput-lottey2 .img img').attr('src','img/dzp-10.png');
+										break;
+									case 3: 
+										$('.poput-lottey2,.share-window-hi').show();
+										$('#txt-lottey').text('二等獎');
+										$('#txt-lottey1').show();
+										$('.poput-lottey2 .img img').attr('src','img/dzp-22.png');
+										break;
+									case 4: 
+										$('.poput-lottey2,.share-window-hi').show();
+										$('#txt-lottey').text('10 Lite Dollar');
+										$('#txt-lottey1').hide();
+										$('.poput-lottey2 .img img').attr('src','img/dzp-10.png');
+										break;
+									case 5: 
+										$('.poput-lottey1,.share-window-hi').show();
+										break;
+									case 6: 
+										$('.poput-lottey2,.share-window-hi').show();
+										$('#txt-lottey').text('5 Lite Dollar');
+										$('#txt-lottey1').hide();
+										$('.poput-lottey2 .img img').attr('src','img/dzp-10.png');
+										break;
+									case 7: 
+										$('.poput-lottey2,.share-window-hi').show();
+										$('#txt-lottey').text('幸運獎');
+										$('#txt-lottey1').show();
+										$('.poput-lottey2 .img img').attr('src','img/dzp-22.png');
+										break;
+									default:
+										$('.poput-lottey2,.share-window-hi').show();
+										$('#txt-lottey').text('20 Lite Dollar');
+										$('#txt-lottey1').hide();
+										$('.poput-lottey2 .img img').attr('src','img/dzp-10.png');
+								}
+							},
+						});
+					};
+				});
+				
+				
+			},100);
+			
+			function shareFn(){ //分享
+				$(".share-window-hi").show();
+				$('.share-window').show();
+				$('.share-window').css({
+					'bottom': 0
+				});
+				$('.share-window-hi').addClass('share-lottey');
+			}
+			
+			$(document).on('click','.share-lottey',function() { //关闭分享
+				closeFn();
+			});
+			function closeFn(){
+				$('.share-window-hi').removeClass('share-lottey');
+				$('.share-window').css({
+					'bottom': '-210px'
+				});
+				$(".share-window-hi").hide();
+				$(".share_goods").hide();
+			}
+		</script>
+		
+	</body>
+</html>
