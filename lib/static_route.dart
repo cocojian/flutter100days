@@ -1,8 +1,8 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter_learn/pages/b_page.dart';
-import 'package:flutter_learn/pages/a_page.dart';
-import 'package:flutter_learn/pages/c_page.dart';
+import '/pages/b_page.dart';
+import '/pages/a_page.dart';
+import '/pages/c_page.dart';
 void main() {
   runApp(const MyApp());
 }

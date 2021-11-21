@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_learn/tabs/tabs_his.dart';
-import 'package:flutter_learn/tabs/tabs_pic.dart';
-import 'package:flutter_learn/tabs/tabs_news.dart';
+import '/tabs/tabs_his.dart';
+import '/tabs/tabs_pic.dart';
+import '/tabs/tabs_news.dart';
 
 void main() {
   runApp(MaterialApp(

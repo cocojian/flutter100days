@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_learn/pages/demo1.dart' show Demo1;
-import 'package:flutter_learn/pages/demo2.dart' show Demo2;
+import '/pages/demo1.dart' show Demo1;
+import '/pages/demo2.dart' show Demo2;
 
 void main() {
   // debugPaintSizeEnabled = true;

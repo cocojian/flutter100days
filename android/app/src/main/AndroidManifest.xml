@@ -2,7 +2,7 @@
     package="com.cocojian.flutter.flutter_learn">
     <uses-permission android:name="android.permission.INTERNET" />
    <application
-        android:label="flutter学习"
+        android:label="flutter100day"
         android:usesCleartextTraffic="true"
         android:icon="@mipmap/logo">
         <activity

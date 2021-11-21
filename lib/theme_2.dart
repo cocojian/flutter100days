@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_learn/tool/app_theme.dart';
+import '/tool/app_theme.dart';
 
 void main() {
   runApp(const MyApp());

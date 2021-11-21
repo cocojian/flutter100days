@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_learn/widgets/coupon_shape_border.dart';
+import '/widgets/coupon_shape_border.dart';
 
 void main() {
   runApp(MyApp());

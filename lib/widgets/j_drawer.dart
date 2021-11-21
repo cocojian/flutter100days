@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_learn/pages/students.dart';
+import '/pages/students.dart';
 
 class JDrawer extends StatelessWidget {
   const JDrawer({Key key}) : super(key: key);

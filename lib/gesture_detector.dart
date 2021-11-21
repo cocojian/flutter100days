@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_learn/widgets/j_drawer.dart';
+import 'widgets/j_drawer.dart';
 
 void main() {
   runApp(const MyApp());
